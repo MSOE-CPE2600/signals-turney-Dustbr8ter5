@@ -4,9 +4,10 @@
  */
 
 /**
- * Modified by:
+ * Modified by: Vincent Vassallo
  * 
- * Brief summary of modifications:
+ * Brief summary of modifications: Removed Handle_signal exit(), and replaced it with
+ * the kill function that terminates the programs pid with SIGKILL
  */
 
 
@@ -20,7 +21,7 @@
  */
 void handle_signal() {
     printf("Received a signal\n");
-    exit(1);
+    kill(getpid(), SIGKILL);
 }
 
 int main() {
