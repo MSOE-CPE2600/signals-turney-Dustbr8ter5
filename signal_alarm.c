@@ -10,16 +10,19 @@
 #include <stdlib.h>
 #include <stdio.h>
 void handle() {
-    printf("Alarm recieved...\n");
+    printf("Alarm received...\n");
     exit(1);
 }
 
 int main() {
+    //Register for the signal
     signal(SIGALRM, handle);
+    //Start timer for alarm
     alarm(5);
-        int i = 0;
+    //Hold the program while the alarm counts down
+    int i = 0;
     while(1) {
-        i++;
+        i++; //i is there so the loop is not empty
     }
     return i;
 }

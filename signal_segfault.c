@@ -4,15 +4,23 @@
  */
 
 /**
- * Modified by:
+ * Modified by: Vincent Vassallo
  * 
- * Brief summary of modifications:
+ * Brief summary of modifications: Installed a handler function and signal() in main
  */
 
 
+#include <signal.h>
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
 
+void handler() {
+    printf("Received segmentation fault...");
+}
 int main (int argc, char* argv[]) {
+    //Resister for signal
+    signal(SIGSEGV, handler);
     // Declare a null pointer
     int* i = NULL;
 
