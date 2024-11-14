@@ -2,13 +2,14 @@
  * File: recv_signal
  * Modified by: Vincent Vassallo
  * 
- * Brief summary of program:
+ * Brief summary of program: A sigaction call is stuck in while loop
+ * while waiting for a SIGUSR1 signal to get passed into the handler
  */
 #include <signal.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <sys/wait.h>
+
 
 void handler(int signo, siginfo_t *info, void *context) {
     //Get sival
@@ -29,6 +30,7 @@ int main() {
     //Register for signal
     sigaction(SIGUSR1, &new_action, NULL);
     //wait for the child to send signal
+    printf("Put ps in command line after ctrl + z to find pid\n");
     while(1);
     return 0;
 }
