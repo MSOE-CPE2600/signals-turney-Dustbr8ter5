@@ -13,7 +13,7 @@
 void handler(int signo, siginfo_t *info, void *context) {
     //Get sival
     
-    printf("Signal value: %d\n", info->si_int);
+    printf("Signal value: %d\n", info->si_value.sival_int);
     //"Return"
     exit(1);
 }
