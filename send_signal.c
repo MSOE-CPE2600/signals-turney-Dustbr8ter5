@@ -2,7 +2,8 @@
  * File: send_signal.c
  * Modified by: Vincent Vassallo
  * 
- * Brief summary of program:
+ * Brief summary of program: Scans in a user inputted PID, sets the value to send
+ * to a random integer, and uses sigqueue to send the value to the user inputted pid.
  */
 #include <signal.h>
 #include <unistd.h>
