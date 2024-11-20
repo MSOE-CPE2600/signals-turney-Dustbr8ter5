@@ -21,6 +21,7 @@ int main(int argc, char* argv[]) {
     srand(time(NULL));
     //Set sival to a random number
     value.sival_int = rand();
+    printf("Value to be sent: %d \n", value.sival_int);
     //Send SIGUSR1 and the random value to pid
     if(sigqueue(pid, SIGUSR1, value) == -1) {
         perror("Sigqueue Failure\n");
